@@ -276,6 +276,18 @@ header {
     .work-grid { grid-template-columns: 1fr !important; }
     .sns-quote { font-size: 0.9rem; }
 }
+
+
+#leadership img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+#leadership img:hover {
+    filter: grayscale(0%) contrast(100%) !important;
+}
     </style>
 </head>
 
@@ -320,7 +332,7 @@ header {
                         <div
                             style="position:absolute; width:100%; height:100%; border: 1px solid var(--bg-deep); top: 15px; left: 15px; z-index:0;">
                         </div>
-                        <img src="https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?q=80"
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80"
                             class="img-fluid position-relative" style="z-index:1;" alt="Solar maintenance">
                     </div>
                 </div>
@@ -381,27 +393,103 @@ header {
     </section>
 
     <section id="work" class="section bg-white">
-        <h6 class="text-uppercase mb-2" style="color:var(--accent-muted); letter-spacing: 2px;">03 // PROJECTS</h6>
-        <h2 class="display-6 fw-bold mb-5 ">Portfolio</h2>
-        <div class="work-grid ">
-            <div class="work-item"><img src="overlay.png"></div>
-            <div class="work-item"><img src="overlay.png"></div>
-            <div class="work-item"><img src="overlay.png"></div>
-            <div class="work-item"><img src="overlay.png"></div>
-            <div class="work-item"><img src="overlay.png"></div>
-            <div class="work-item"><img src="overlay.png"></div>
-            <div class="work-item"><img src="overlay.png"></div>
-            <div class="work-item"><img src="overlay.png"></div>
-            <div class="work-item"><img src="overlay.png"></div>
-            <div class="work-item"><img src="overlay.png"></div>
-            <div class="work-item"><img src="overlay.png"></div>
-            <div class="work-item"><img src="overlay.png"></div>
+    <h6 class="text-uppercase mb-2" style="color:var(--accent-muted); letter-spacing: 2px;">
+        03 // PROJECTS
+    </h6>
+    <h2 class="display-6 fw-bold mb-5">Portfolio</h2>
+
+    <div class="work-grid">
+
+        <!-- Solar Installations -->
+        <div class="work-item">
+            <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=80" alt="">
         </div>
-    </section>
+
+        <div class="work-item">
+            <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80" alt="">
+        </div>
+
+        <div class="work-item">
+            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80" alt="">
+        </div>
+
+        <div class="work-item">
+            <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=800&q=80" alt="">
+        </div>
+
+        <!-- Solar Cleaning -->
+        <div class="work-item">
+            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80" alt="">
+        </div>
+
+        <div class="work-item">
+            <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80" alt="">
+        </div>
+
+        <div class="work-item">
+            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80" alt="">
+        </div>
+
+        <div class="work-item">
+            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80" alt="">
+        </div>
+
+        <!-- Residential / Commercial -->
+        <div class="work-item">
+            <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?auto=format&fit=crop&w=800&q=80" alt="">
+        </div>
+
+        <div class="work-item">
+            <img src="https://images.unsplash.com/photo-1620207418302-439b387441b0?auto=format&fit=crop&w=800&q=80" alt="">
+        </div>
+
+        <div class="work-item">
+            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80" alt="">
+        </div>
+
+        <div class="work-item">
+            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80" alt="">
+        </div>
+
+    </div>
+</section>
+
+<section id="leadership" class="section bg-white">
+    <div class="container-fluid p-0">
+        <div class="row align-items-center g-5 flex-row-reverse">
+            <div class="col-lg-6">
+                <div style="position:relative">
+                    <div style="position:absolute; width:100%; height:100%; border: 1px solid var(--accent-muted); bottom: 20px; right: 20px; z-index:0;"></div>
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80" 
+                         class="img-fluid position-relative shadow-lg" 
+                         style="z-index:1; filter: grayscale(100%) contrast(110%);" 
+                         alt="Lead Solar Engineer">
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <h6 class="text-uppercase mb-3" style="color:var(--accent-muted); letter-spacing: 3px;">04 // LEADERSHIP</h6>
+                <h2 class="display-5 fw-bold mb-4">Visionary Engineering</h2>
+                <p class="lead fw-600 mb-4" style="color: var(--bg-deep);">Driven by technical excellence and Karachi's sustainable future.</p>
+                <p class="opacity-75">With over a decade of experience in photovoltaic systems, our leadership ensures that Shine & Supply doesn't just sell hardware—we engineer long-term energy security. Every site we manage is a testament to our commitment to precision, from the initial survey to our specialized de-ionized cleaning protocols.</p>
+                
+                <div class="mt-5">
+                    <h5 class="fw-800 mb-0">M. ZAID KHAN</h5>
+                    <small class="text-uppercase opacity-50" style="letter-spacing: 2px;">Chief Technical Officer & Founder</small>
+                </div>
+
+                <div class="d-flex gap-3 mt-4">
+                    <a href="#" class="btn-premium" style="background:#000; color:#fff; padding: 10px 25px; font-size: 0.75rem;">LinkedIn Profile</a>
+                    <a href="https://wa.me/923000000000" class="btn-premium" style="background:transparent; border: 1px solid #000; color:#000; padding: 10px 25px; font-size: 0.75rem;">Direct Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <section id="pricing" class="section">
         <div class="container">
             <div class="text-left mb-5 ">
-                <h6 class="white-text" style="letter-spacing: 3px;">04 // PACKAGES</h6>
+                <h6 class="white-text" style="letter-spacing: 3px;">05 // PACKAGES</h6>
                 <h2 class="display-5 fw-bold white-text">System Investment</h2>
             </div>
             <div class="row g-4">
@@ -462,7 +550,7 @@ header {
 
         <div class="d-flex justify-content-between align-items-end mb-5">
             <div>
-                <h6 class="text-uppercase mb-2" style="color: #5C7C89; letter-spacing: 3px; font-weight: 600;">05 //
+                <h6 class="text-uppercase mb-2" style="color: #5C7C89; letter-spacing: 3px; font-weight: 600;">06 //
                     VALIDATION</h6>
                 <h2 class="display-5 fw-bold text-white" style="line-height: 1.1;">Trusted By <br> Karachi's Finest</h2>
             </div>
@@ -582,9 +670,71 @@ header {
         </div>
     </section>
 
-    <footer class="py-5 text-center opacity-30 small" style="letter-spacing: 3px;">
-        © 2026 SHINE & SUPPLY. ENGINEERED IN KARACHI.
-    </footer>
+    <footer class="section -section text-white pt-5 pb-4" style="border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="container-fluid">
+        <div class="row g-5">
+            
+            <div class="col-lg-4">
+                <div class="brand mb-4">SHINE <span style="color:var(--accent-muted)">&</span> SUPPLY</div>
+                <p class="opacity-50 small mb-4" style="max-width: 300px; line-height: 1.8;">
+                    Karachi's premier solar maintenance and acquisition firm. We specialize in high-yield energy systems for DHA, Clifton, and beyond.
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-white opacity-50 hover-opacity-100"><i class="bi bi-instagram fs-5"></i></a>
+                    <a href="#" class="text-white opacity-50 hover-opacity-100"><i class="bi bi-linkedin fs-5"></i></a>
+                    <a href="#" class="text-white opacity-50 hover-opacity-100"><i class="bi bi-facebook fs-5"></i></a>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-2">
+                <h6 class="text-uppercase mb-4 fw-800" style="font-size: 0.75rem; letter-spacing: 2px; color: var(--accent-muted);">Sitemap</h6>
+                <ul class="list-unstyled opacity-50 small" style="line-height: 2.5;">
+                    <li><a href="#home" class="text-white text-decoration-none">Home</a></li>
+                    <li><a href="#about" class="text-white text-decoration-none">Our Philosophy</a></li>
+                    <li><a href="#services" class="text-white text-decoration-none">Capabilities</a></li>
+                    <li><a href="#work" class="text-white text-decoration-none">Project Showcase</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-lg-3">
+                <h6 class="text-uppercase mb-4 fw-800" style="font-size: 0.75rem; letter-spacing: 2px; color: var(--accent-muted);">Expertise</h6>
+                <ul class="list-unstyled opacity-50 small" style="line-height: 2.5;">
+                    <li>Tier-1 Panel Sourcing</li>
+                    <li>De-ionized Water Cleaning</li>
+                    <li>Structural Health Checks</li>
+                    <li>Inverter Performance Tuning</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3">
+                <h6 class="text-uppercase mb-4 fw-800" style="font-size: 0.75rem; letter-spacing: 2px; color: var(--accent-muted);">Headquarters</h6>
+                <div class="opacity-50 small">
+                    <p class="mb-2"><i class="bi bi-geo-alt me-2"></i> Karachi, Sindh, Pakistan</p>
+                    <p class="mb-2"><i class="bi bi-envelope me-2"></i> solutions@shinesupply.pk</p>
+                    <p class="mb-4"><i class="bi bi-telephone me-2"></i> +92 300 000 0000</p>
+                    <a href="https://wa.me/923000000000" class="btn-whatsapp py-2 px-3 w-100 justify-content-center" style="font-size: 0.8rem;">
+                        <i class="bi bi-whatsapp"></i> Get Instant Quote
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <hr class="my-5 opacity-10">
+
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center opacity-30 small" style="letter-spacing: 2px;">
+            <!-- <p class="mb-0">© 2026 SHINE & SUPPLY. ENGINEERED IN KARACHI.</p> -->
+             <p class="text-center text-secondary small text-white">
+                © 2026 SHINE & SUPPLY. ENGINEERED IN KARACHI.. Design by
+                <a href="https://ak98.vercel.app/" target="_blank"
+                    style="font-weight: bold; text-decoration: none; color: white;">
+                    Abdullah Khan
+                </a>
+            </p>
+            <p class="mb-0 mt-2 mt-md-0">PRIVACY // TERMS // COMPLIANCE</p>
+        </div>
+    </div>
+</footer>
 
     <script>
    // DELETE ALL GSAP AND SCROLLTRIGGER CODE. 
