@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shine & Supply | Premium Solar Solutions</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --bg-deep: #011425;
+            --bg-dark: #242424;
+            --accent-muted: #5C7C89;
+            --white: #FFFFFF;
+            --glass: rgba(255, 255, 255, 0.05);
+            /* Consistent Horizontal Alignment */
+            --side-pad: 8%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg-deep);
+            color: var(--white);
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* --- UNIFIED HEADER --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px var(--side-pad);
+            /* Same as sections */
+            z-index: 3000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(1, 20, 37, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .brand {
+            font-weight: 800;
+            font-size: 1.4rem;
+            letter-spacing: -1px;
+        }
+
+        .ham-btn {
+            width: 30px;
+            height: 18px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            z-index: 4000;
+        }
+
+        .line {
+            width: 100%;
+            height: 2px;
+            background: var(--white);
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        /* --- GSAP OVERLAY --- */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--bg-deep);
+            z-index: 3500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .nav-links {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0px 0;
+            overflow: hidden;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 800;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-muted);
+        }
+
+        /* --- UNIFIED SECTIONS --- */
+        .section {
+            padding: 120px var(--side-pad);
+        }
+
+        .hero {
+            height: 100vh;
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            padding: 0 var(--side-pad);
+            background: linear-gradient(to right, rgba(1, 20, 37, 1) 45%, rgba(1, 20, 37, 0.2)),
+                url('https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80') center/cover;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 9vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .btn-premium {
+            background: var(--white);
+            color: var(--bg-deep);
+            padding: 18px 45px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-premium:hover {
+            background: var(--accent-muted);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .bg-white {
+            background: var(--white);
+            color: var(--bg-deep);
+        }
+
+        /* --- CARDS & GRIDS --- */
+        .glass-card {
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 4px;
+            padding: 50px 40px;
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+        }
+
+        .glass-card:hover {
+            border-color: var(--white);
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-10px);
+        }
+
+        .btn-premium {
+            background: var(--white);
+            color: var(--bg-deep);
+            padding: 18px 45px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-radius: 0;
+            border: none;
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-premium:hover {
+            background: var(--accent-muted);
+            color: var(--white);
+        }
+
+        .white-text {
+            color: var(--white) !important;
+        }
+
+        .bg-dark-section {
+            background: var(--bg-dark);
+        }
+
+        .icon-box {
+            color: var(--white);
+            font-size: 3rem;
+            margin-bottom: 25px;
+        }
+
+        .bg-white .glass-card {
+            background: rgba(1, 20, 37, 0.03);
+            border-color: rgba(1, 20, 37, 0.1);
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 25px;
+            transition: 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            color: white;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .work-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .work-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+            transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .work-item:hover img {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: none;
+        }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 991px) {
+            :root {
+                --side-pad: 6%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            :root {
+                --side-pad: 5%;
+            }
+
+            .section {
+                padding: 80px var(--side-pad);
+            }
+
+            .hero {
+                text-align: center;
+                justify-content: center;
+                margin-top: 40px;
+                /* background: rgba(1, 20, 37, 0.9); */
+            }
+
+            .work-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 10px !important;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brand {
+                font-size: 1.1rem;
+            }
+        }
+
+
+
+        /* Testmonials */
+        /* Navigation Buttons */
+        .sns-nav-btn {
+            width: 50px;
+            height: 50px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .sns-nav-btn:hover {
+            background: white;
+            color: #011425;
+        }
+
+        /* Premium Glass Cards */
+        .sns-glass-card {
+            background: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-left: 4px solid #5C7C89 !important;
+            padding: 40px !important;
+            height: 100% !important;
+            min-height: 320px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+        }
+
+        .sns-quote {
+            font-size: 1.1rem !important;
+            color: rgba(255, 255, 255, 0.85) !important;
+            line-height: 1.6 !important;
+        }
+
+        .sns-client h6 {
+            color: white !important;
+            font-weight: 800 !important;
+            text-transform: uppercase !important;
+        }
+
+        .sns-client small {
+            color: rgba(255, 255, 255, 0.4) !important;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            #testimonial-section {
+                padding-left: 5% !important;
+                padding-right: 5% !important;
+            }
+
+            .sns-glass-card {
+                padding: 30px 20px !important;
+                min-height: 280px !important;
+            }
+        }
+
+        /* Support for 320px screens */
+        @media (max-width: 320px) {
+            .display-5 {
+                font-size: 1.8rem !important;
+            }
+
+            .sns-quote {
+                font-size: 0.95rem !important;
+            }
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="brand">SHINE <span style="color:var(--accent-muted)">&</span> SUPPLY</div>
+        <div class="ham-btn" id="menuBtn">
+            <div class="line l1"></div>
+            <div class="line l2" style="width: 70%; align-self: flex-end;"></div>
+            <div class="line l3"></div>
+        </div>
+    </header>
+
+    <div class="menu-overlay" id="menuOverlay">
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Showcase</a></li>
+            <li><a href="#testimonial-section">Clients</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <section id="home" class="hero">
+        <div id="heroContent">
+            <h6 class="text-uppercase mb-4" style="letter-spacing: 6px; color: var(--accent-muted); font-weight: 600;">
+                System Intelligence</h6>
+            <h1>Solar For <br> Modern <br> Estates.</h1>
+            <p class="lead mb-5 opacity-75" style="max-width: 550px;">Bespoke panel acquisition and specialized
+                maintenance for Karachi's premium architectural projects.</p>
+            <a href="#contact" class="btn-premium">Start Consultation</a>
+        </div>
+    </section>
+
+    <section id="about" class="section bg-white">
+        <div class="container-fluid p-0">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 reveal">
+                    <div style="position:relative">
+                        <div
+                            style="position:absolute; width:100%; height:100%; border: 1px solid var(--bg-deep); top: 15px; left: 15px; z-index:0;">
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?q=80"
+                            class="img-fluid position-relative" style="z-index:1;" alt="Solar maintenance">
+                    </div>
+                </div>
+                <div class="col-lg-6 reveal">
+                    <h6 class="text-uppercase fw-800 mb-3" style="color:var(--accent-muted); letter-spacing: 2px;">01 //
+                        PHILOSOPHY</h6>
+                    <h2 class="display-5 fw-bold mb-4">Precision in Every Watt</h2>
+                    <p>We solve the efficiency problem. Karachi’s environment demands more than just installation; it
+                        requires meticulous technical care. Shine & Supply combines Tier-1 hardware sales with
+                        industrial-grade cleaning to ensure your ROI is never compromised by dust or soot.</p>
+                    <div class="d-flex gap-5 mt-5">
+                        <div>
+                            <h3 class="fw-800 mb-0">12</h3><small class="text-uppercase opacity-50">Active Sites</small>
+                        </div>
+                        <div>
+                            <h3 class="fw-800 mb-0">30%</h3><small class="text-uppercase opacity-50">Gain Boost</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div class="mb-5 reveal">
+            <h6 class="text-uppercase mb-2" style="color:var(--accent-muted); letter-spacing: 2px;">02 // CAPABILITIES
+            </h6>
+            <h2 class="display-6 fw-bold">Bespoke Services</h2>
+
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4 reveal">
+                <div class="glass-card">
+                    <i class="bi bi-lightning-charge fs-1 mb-4 d-block"></i>
+                    <h4 class="fw-800">Panel Sales</h4>
+                    <p class="opacity-50">Global-standard Monocrystalline technology sourced for maximum yield.</p>
+                    <a href="https://wa.me/923000000000" class="btn-whatsapp"><i class="bi bi-whatsapp"></i> Inquiry</a>
+                </div>
+            </div>
+            <div class="col-md-4 reveal">
+                <div class="glass-card">
+                    <i class="bi bi-water fs-1 mb-4 d-block"></i>
+                    <h4 class="fw-800">Technical Cleaning</h4>
+                    <p class="opacity-50">Using de-ionized water systems to remove microscopic debris from glass.</p>
+                    <a href="https://wa.me/923000000000" class="btn-whatsapp"><i class="bi bi-whatsapp"></i> Book
+                        Service</a>
+                </div>
+            </div>
+            <div class="col-md-4 reveal">
+                <div class="glass-card">
+                    <i class="bi bi-shield-check fs-1 mb-4 d-block"></i>
+                    <h4 class="fw-800">Support</h4>
+                    <p class="opacity-50">Ongoing structural checks and inverter health monitoring.</p>
+                    <a href="https://wa.me/923000000000" class="btn-whatsapp"><i class="bi bi-whatsapp"></i> Consult</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="section bg-white">
+        <h6 class="text-uppercase mb-2" style="color:var(--accent-muted); letter-spacing: 2px;">03 // PROJECTS</h6>
+        <h2 class="display-6 fw-bold mb-5 reveal">Portfolio</h2>
+        <div class="work-grid reveal">
+            <div class="work-item"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80"></div>
+            <div class="work-item"><img src="https://images.unsplash.com/photo-1548337138-e87d889cc369?q=80"></div>
+            <div class="work-item"><img src="https://images.unsplash.com/photo-1594398901394-4e34939a4fe0?q=80"></div>
+            <div class="work-item"><img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80"></div>
+            <div class="work-item"><img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80"></div>
+            <div class="work-item"><img src="https://images.unsplash.com/photo-1592833159057-65c952737f97?q=80"></div>
+            <div class="work-item"><img src="https://images.unsplash.com/photo-1558444479-c8f010b91939?q=80"></div>
+            <div class="work-item"><img src="https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?q=80"></div>
+            <div class="work-item"><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80"></div>
+            <div class="work-item"><img src="https://images.unsplash.com/photo-1466611653911-95282fc3656b?q=80"></div>
+            <div class="work-item"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80"></div>
+            <div class="work-item"><img src="https://images.unsplash.com/photo-1548337138-e87d889cc369?q=80"></div>
+        </div>
+    </section>
+    <section id="pricing" class="section">
+        <div class="container">
+            <div class="text-left mb-5 reveal">
+                <h6 class="white-text" style="letter-spacing: 3px;">04 // PACKAGES</h6>
+                <h2 class="display-5 fw-bold white-text">System Investment</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 reveal">
+                    <div class="glass-card text-left">
+                        <h5 class="white-text">STARTER</h5>
+                        <div class="price-tag">
+                            <h2 class="display-5 fw-bold white-text">3KW</h2>
+                        </div>
+                        <p class="white-text mb-4">PKR 150,000</p>
+                        <ul class="list-unstyled sub-text text-start">
+                            <li><i class="bi bi-check small me-2"></i> Hybrid Inverter</li>
+                            <li><i class="bi bi-check small me-2"></i> Professional Mounting</li>
+                        </ul>
+                        <a href="https://wa.me/923000000000" class="btn-whatsapp mt-4"><i class="bi bi-whatsapp"></i>
+                            Inquiry</a>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal">
+                    <div class="glass-card text-left" style="border: 2px solid var(--white);">
+                        <h5 class="white-text">PROFESSIONAL</h5>
+                        <div class="price-tag">
+                            <h2 class="display-5 fw-bold white-text">5KW</h2>
+                        </div>
+                        <p class="white-text mb-4">PKR 300,000</p>
+                        <ul class="list-unstyled sub-text text-start">
+                            <li><i class="bi bi-check small me-2"></i> Tier-1 Components</li>
+                            <li><i class="bi bi-check small me-2"></i> 1 Year Free Cleaning</li>
+                        </ul>
+                        <a href="https://wa.me/923000000000" class="btn-whatsapp mt-4"><i class="bi bi-whatsapp"></i>
+                            Inquiry</a>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal">
+                    <div class="glass-card text-left">
+                        <h5 class="white-text">ENTERPRISE</h5>
+                        <div class="price-tag">
+                            <h2 class="display-5 fw-bold white-text">10KW</h2>
+                        </div>
+                        <p class="white-text mb-4">PKR 500,000</p>
+
+                        <ul class="list-unstyled sub-text text-start mb-4">
+                            <li><i class="bi bi-check small me-2"></i> Industrial Capacity</li>
+                            <li><i class="bi bi-check small me-2"></i> 24/7 Monitoring</li>
+                        </ul>
+
+                        <div class="d-grid">
+                            <a href="https://wa.me/923000000000" class="btn-whatsapp mt-4"><i class="bi bi-whatsapp"></i>
+                            Book Free Consultation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="testimonial-section"
+        style="padding: 100px 8% !important; background: #011425 !important; overflow: hidden;">
+
+        <div class="d-flex justify-content-between align-items-end mb-5">
+            <div>
+                <h6 class="text-uppercase mb-2" style="color: #5C7C89; letter-spacing: 3px; font-weight: 600;">05 //
+                    VALIDATION</h6>
+                <h2 class="display-5 fw-bold text-white" style="line-height: 1.1;">Trusted By <br> Karachi's Finest</h2>
+            </div>
+
+            <div class="d-none d-md-flex gap-2">
+                <button class="sns-nav-btn" type="button" data-bs-target="#snsCarousel" data-bs-slide="prev">
+                    <i class="bi bi-arrow-left"></i>
+                </button>
+                <button class="sns-nav-btn" type="button" data-bs-target="#snsCarousel" data-bs-slide="next">
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="snsCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <div class="row g-4">
+                        <div class="col-12 col-md-4">
+                            <div class="sns-glass-card">
+                                <div class="text-warning mb-3">★★★★★</div>
+                                <p class="sns-quote">"The difference in power output after their cleaning service was
+                                    immediate. Highly professional team."</p>
+                                <div class="sns-client">
+                                    <h6 class="fw-800 mb-0">Ahmed Khan</h6>
+                                    <small class="opacity-50">DHA Phase 6 • +92 300 XXX XXXX</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 d-none d-md-block">
+                            <div class="sns-glass-card">
+                                <div class="text-warning mb-3">★★★★★</div>
+                                <p class="sns-quote">"Finally, a solar vendor that understands the technical nuances of
+                                    maintenance in Karachi's coastal climate."</p>
+                                <div class="sns-client">
+                                    <h6 class="fw-800 mb-0">Sara Mansoor</h6>
+                                    <small class="opacity-50">Clifton Block 4 • +92 321 XXX XXXX</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 d-none d-md-block">
+                            <div class="sns-glass-card">
+                                <div class="text-warning mb-3">★★★★★</div>
+                                <p class="sns-quote">"Transparent pricing and elite installation. Our industrial unit is
+                                    now running 100% on their grid integration."</p>
+                                <div class="sns-client">
+                                    <h6 class="fw-800 mb-0">Zubair Ent.</h6>
+                                    <small class="opacity-50">Korangi Industrial Area</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="row g-4">
+                        <div class="col-12 col-md-4">
+                            <div class="sns-glass-card">
+                                <div class="text-warning mb-3">★★★★★</div>
+                                <p class="sns-quote">"Excellent de-ionized water cleaning service. It boosted our
+                                    production by 25% instantly. Highly recommended."</p>
+                                <div class="sns-client">
+                                    <h6 class="fw-800 mb-0">M. Rashid</h6>
+                                    <small class="opacity-50">DHA Phase 8 • +92 333 XXX XXXX</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 d-none d-md-block">
+                            <div class="sns-glass-card">
+                                <div class="text-warning mb-3">★★★★★</div>
+                                <p class="sns-quote">"Their attention to detail during the structural check was
+                                    impressive. Best solar maintenance in the city."</p>
+                                <div class="sns-client">
+                                    <h6 class="fw-800 mb-0">Omar Siddiqui</h6>
+                                    <small class="opacity-50">PECHS Block 6</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 d-none d-md-block">
+                            <div class="sns-glass-card">
+                                <div class="text-warning mb-3">★★★★★</div>
+                                <p class="sns-quote">"Seamless process from inquiry to execution. The team is
+                                    knowledgeable and very punctual."</p>
+                                <div class="sns-client">
+                                    <h6 class="fw-800 mb-0">Fatima Jinnah</h6>
+                                    <small class="opacity-50">Gulshan-e-Iqbal</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="section bg-white">
+        <div class="row g-5">
+            <div class="col-lg-5 reveal">
+                <h2 class="display-5 fw-bold">Let's Secure <br> Your Energy.</h2>
+                <p class="mt-4 opacity-50">Providing site surveys and technical consultations across Karachi.</p>
+            </div>
+            <div class="col-lg-7 reveal">
+                <form>
+                    <div class="row g-3">
+                        <div class="col-12"><input type="text" class="form-control py-3 border-dark rounded-0"
+                                placeholder="NAME"></div>
+                        <div class="col-12"><input type="email" class="form-control py-3 border-dark rounded-0"
+                                placeholder="EMAIL"></div>
+                        <div class="col-12"><textarea class="form-control border-dark rounded-0" rows="5"
+                                placeholder="REQUIREMENTS"></textarea></div>
+                        <div class="col-12"><button class="btn-premium w-100" style="background:#000; color:#fff">Submit
+                                Inquiry</button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-5 text-center opacity-30 small" style="letter-spacing: 3px;">
+        © 2026 SHINE & SUPPLY. ENGINEERED IN KARACHI.
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // --- ROCK SOLID MENU LOGIC ---
+        const menuBtn = document.getElementById('menuBtn');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        // Create the timeline
+        const tl = gsap.timeline({ paused: true, reversed: true });
+
+        tl.to(menuOverlay, { duration: 0.5, autoAlpha: 1, visibility: 'visible', ease: "power4.inOut" })
+            .from(".nav-links a", { duration: 0.4, y: 60, stagger: 0.1, opacity: 0, ease: "power4.out" }, "-=0.2");
+
+        function toggleMenu() {
+            if (tl.reversed()) {
+                tl.play();
+                // Animate Ham Lines
+                gsap.to(".l1", { duration: 0.3, y: 8, rotate: 45 });
+                gsap.to(".l2", { duration: 0.2, opacity: 0 });
+                gsap.to(".l3", { duration: 0.3, y: -8, rotate: -45 });
+            } else {
+                tl.reverse();
+                // Reset Ham Lines
+                gsap.to(".l1", { duration: 0.3, y: 0, rotate: 0 });
+                gsap.to(".l2", { duration: 0.2, opacity: 1 });
+                gsap.to(".l3", { duration: 0.3, y: 0, rotate: 0 });
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Close on click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // --- SCROLL REVEALS ---
+        gsap.from("#heroContent > *", { duration: 1.5, x: -60, opacity: 0, stagger: 0.2, ease: "power4.out" });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            gsap.to(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 92%",
+                    toggleActions: "play none none none"
+                },
+                duration: 1.2,
+                y: 0,
+                opacity: 1,
+                ease: "power3.out"
+            });
+        });
+    </script>
+
+</body>
+
+</html>
